@@ -15,3 +15,21 @@ function checkPassword() {
     document.getElementById("errorMsg").textContent = "Password errata";
   }
 }
+
+// mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const navEl = document.querySelector('nav');
+if (menuToggle && navEl) {
+  menuToggle.addEventListener('click', () => {
+    const open = navEl.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', open);
+  });
+
+  // close menu after clicking a link (mobile)
+  navEl.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navEl.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', false);
+    });
+  });
+}
