@@ -33,3 +33,39 @@ if (menuToggle && navEl) {
     });
   });
 }
+
+// Lightbox: apri immagine al click
+const lightbox = document.getElementById('lightbox');
+function openLightbox(src, alt) {
+  lightbox.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = alt || '';
+  lightbox.appendChild(img);
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  lightbox.innerHTML = '';
+}
+document.addEventListener('click', (e) => {
+  if (e.target.matches('.photo-box img, .chi-gallery img, .testimonial-image img, .events-image img, .hero-photo-small img')) {
+    openLightbox(e.target.src, e.target.alt);
+  }
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+// Cookie banner
+const cookieBanner = document.getElementById('cookieBanner');
+const acceptBtn = document.getElementById('acceptCookies');
+if (cookieBanner && acceptBtn) {
+  const consent = localStorage.getItem('cookie_consent');
+  if (!consent) cookieBanner.setAttribute('aria-hidden', 'false');
+  acceptBtn.addEventListener('click', () => {
+    localStorage.setItem('cookie_consent', '1');
+    cookieBanner.setAttribute('aria-hidden', 'true');
+  });
+}
