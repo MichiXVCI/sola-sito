@@ -278,3 +278,21 @@ nav a {color:var(--primary); text-decoration:none; font-size:.9rem;}
   color: red;
   margin-top: .5rem;
 }
+
+/* BARRA INFERIORE (stesso stile dell'header) */
+footer {
+  background:var(--soft);
+  border-top:1px solid var(--border);
+  padding:.75rem 1rem;
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  z-index:100;
+}
+
+/* Rimuove padding extra interno della .section-inner per il footer e centra il contenuto */
+footer .section-inner { max-width:1100px; margin:auto; padding:0; display:flex; align-items:center; }
+
+/* Spazio in fondo al body per evitare che il contenuto venga coperto dalla barra */
+body { padding-bottom:70px; }
