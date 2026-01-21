@@ -236,3 +236,45 @@ nav a {color:var(--primary); text-decoration:none; font-size:.9rem;}
     margin-top: 1rem;
   }
 }
+#login-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.login-box {
+  background: var(--soft);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 300px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: .7rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.login-box button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: .7rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#errorMsg {
+  color: red;
+  margin-top: .5rem;
+}
